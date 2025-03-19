@@ -42,7 +42,8 @@ const CoffeeSurveyDashboard = () => {
         // const response = await window.fs.readFile('survey_results.csv', { encoding: 'utf8' });
 
         // With these lines
-        const response = await fetch('/data/survey_results.csv');
+        //const response = await fetch('/data/survey_results.csv');
+        const response = await fetch(process.env.PUBLIC_URL + '/data/survey_results.csv');
         const text = await response.text();
 
         const parsedData = Papa.parse(text, {
