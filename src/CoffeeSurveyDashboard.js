@@ -696,6 +696,7 @@ const CoffeeSurveyDashboard = () => {
 
       <div className="p-4 bg-white rounded-lg shadow">
         <h2 className="text-xl font-semibold mb-2">Key Findings</h2>
+        <p className="text-sm text-gray-500 mb-3">Last updated: {new Date().toLocaleDateString()}</p>
         <ul className="list-disc pl-5 space-y-1 text-left">
           <li className="text-left">
             The survey had 95 respondents, primarily from Nordic countries (Sweden: 50, Denmark: 25, Norway: 20).
