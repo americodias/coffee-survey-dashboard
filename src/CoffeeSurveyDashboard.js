@@ -6,6 +6,7 @@ import {
 } from 'recharts';
 import Papa from 'papaparse';
 import _ from 'lodash';
+import CoffeeSurveySummary from './CoffeeSurveySummary';
 
 const CoffeeSurveyDashboard = () => {
   const [activeTab, setActiveTab] = useState('demographics');
@@ -684,6 +685,12 @@ const CoffeeSurveyDashboard = () => {
           >
             Insights
           </button>
+          <button
+            className={`px-4 py-2 font-medium ${activeTab === 'summary' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            onClick={() => setActiveTab('summary')}
+          >
+            Insights Summary
+          </button>
         </div>
       </div>
 
@@ -692,6 +699,7 @@ const CoffeeSurveyDashboard = () => {
         {activeTab === 'consumption' && renderConsumption()}
         {activeTab === 'preferences' && renderPreferences()}
         {activeTab === 'insights' && renderInsights()}
+        {activeTab === 'summary' && <CoffeeSurveySummary />}
       </div>
 
       <div className="p-4 bg-white rounded-lg shadow">
