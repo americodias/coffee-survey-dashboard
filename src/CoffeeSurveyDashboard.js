@@ -696,19 +696,18 @@ const CoffeeSurveyDashboard = () => {
 
       <div className="p-4 bg-white rounded-lg shadow">
         <h2 className="text-xl font-semibold mb-2">Key Findings</h2>
-        <ul className="list-disc pl-5 space-y-1 text-left"> {/* Added text-left class */}
-          <li className="text-left"> {/* Added text-left to each list item */}
-            The survey had 90 respondents, primarily from Nordic countries (Sweden, Denmark, Norway).
+        <ul className="list-disc pl-5 space-y-1 text-left">
+          <li className="text-left">
+            The survey had 95 respondents, primarily from Nordic countries (Sweden: 50, Denmark: 25, Norway: 20).
           </li>
           <li className="text-left">
-            Most respondents are between 25-54 years old, with the highest concentration in the 35-44 age group.
-          </li>
-          {/* Apply text-left to all other list items as well */}
-          <li className="text-left">
-            Medium roast coffee is preferred by the majority (58%), followed by dark roast (20%).
+            Most respondents are between 25-54 years old, with the highest concentration in the 35-44 age group (31 respondents).
           </li>
           <li className="text-left">
-            Espresso is the most popular brewing method (46%), followed by filter/drip coffee (22%).
+            Medium roast coffee is preferred by the majority (55.8%), followed by dark roast (21.1%).
+          </li>
+          <li className="text-left">
+            Espresso is the most popular brewing method (47.4%), followed by filter/drip coffee (23.2%).
           </li>
           <li className="text-left">
             Coffee consumption is highest in the morning and gradually decreases throughout the day.
@@ -717,16 +716,16 @@ const CoffeeSurveyDashboard = () => {
             Taste is by far the most important factor when purchasing coffee, followed by price.
           </li>
           <li className="text-left">
-            About 55% of respondents drink their coffee black, while milk and plant milk are the most common additives.
+            About 56.8% of respondents drink their coffee black, while milk (30 respondents) and plant milk (23 respondents) are the most common additives.
           </li>
           <li className="text-left">
-            Home is the preferred location for coffee consumption, followed by work.
+            Home is the preferred location for coffee consumption (avg. ranking: 2.1), followed by work (avg. ranking: 2.3).
           </li>
           <li className="text-left">
-            83% of respondents are somewhat or very interested in wellness.
+            81.1% of respondents are somewhat or very interested in wellness.
           </li>
           <li className="text-left">
-            Brand story and availability are the top factors that would make people try a new coffee.
+            Brand story (42 respondents) and availability (42 respondents) are tied as the top factors that would make people try a new coffee.
           </li>
         </ul>
       </div>
