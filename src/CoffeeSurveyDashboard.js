@@ -361,7 +361,8 @@ const CoffeeSurveyDashboard = () => {
     fetchAndProcessData();
   }, []);
 
-  const COLORS = ['#8884d8', '#83a6ed', '#8dd1e1', '#82ca9d', '#a4de6c', '#d0ed57', '#ffc658', '#ff8042', '#ff5252'];
+  // Updated color scheme
+  const COLORS = ['#A4343A', '#D22630', '#FFCD00', '#3F2021', '#A4343A', '#D22630', '#FFCD00', '#3F2021', '#A4343A'];
 
   const renderDemographics = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -379,7 +380,7 @@ const CoffeeSurveyDashboard = () => {
                 <XAxis type="number" />
                 <YAxis dataKey="name" type="category" />
                 <Tooltip />
-                <Bar dataKey="value" fill="#8884d8">
+                <Bar dataKey="value" fill="#A4343A">
                   {data.demographics.countries.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
@@ -400,7 +401,7 @@ const CoffeeSurveyDashboard = () => {
               cy="50%"
               labelLine={true}
               outerRadius={100}
-              fill="#8884d8"
+              fill="#A4343A"
               dataKey="value"
               nameKey="name"
               label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
@@ -424,7 +425,7 @@ const CoffeeSurveyDashboard = () => {
               cy="50%"
               labelLine={true}
               outerRadius={100}
-              fill="#8884d8"
+              fill="#A4343A"
               dataKey="value"
               nameKey="name"
               label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
@@ -450,11 +451,11 @@ const CoffeeSurveyDashboard = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="light" stackId="a" fill="#8dd1e1" name="Light Roast" />
-            <Bar dataKey="medium" stackId="a" fill="#8884d8" name="Medium Roast" />
-            <Bar dataKey="dark" stackId="a" fill="#82ca9d" name="Dark Roast" />
-            <Bar dataKey="not sure" stackId="a" fill="#ffc658" name="Not Sure" />
-            <Bar dataKey="no preference" stackId="a" fill="#ff8042" name="No Preference" />
+            <Bar dataKey="light" stackId="a" fill="#FFCD00" name="Light Roast" />
+            <Bar dataKey="medium" stackId="a" fill="#A4343A" name="Medium Roast" />
+            <Bar dataKey="dark" stackId="a" fill="#3F2021" name="Dark Roast" />
+            <Bar dataKey="not sure" stackId="a" fill="#D22630" name="Not Sure" />
+            <Bar dataKey="no preference" stackId="a" fill="#A4343A" name="No Preference" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -473,7 +474,7 @@ const CoffeeSurveyDashboard = () => {
               cy="50%"
               labelLine={true}
               outerRadius={100}
-              fill="#8884d8"
+              fill="#A4343A"
               dataKey="value"
               nameKey="name"
               label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
@@ -499,7 +500,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis type="number" />
             <YAxis dataKey="name" type="category" width={80} />
             <Tooltip />
-            <Bar dataKey="value" fill="#8884d8" />
+            <Bar dataKey="value" fill="#D22630" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -514,7 +515,7 @@ const CoffeeSurveyDashboard = () => {
               cy="50%"
               labelLine={true}
               outerRadius={100}
-              fill="#8884d8"
+              fill="#A4343A"
               dataKey="value"
               nameKey="name"
               label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
@@ -539,7 +540,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis dataKey="time" />
             <YAxis />
             <Tooltip />
-            <Line type="monotone" dataKey="average" stroke="#8884d8" activeDot={{ r: 8 }} name="Average Consumption" />
+            <Line type="monotone" dataKey="average" stroke="#A4343A" activeDot={{ r: 8 }} name="Average Consumption" />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -559,7 +560,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis dataKey="factor" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="average" fill="#82ca9d" name="Average Importance Score" />
+            <Bar dataKey="average" fill="#3F2021" name="Average Importance Score" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -575,7 +576,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="value" fill="#ffc658" name="Number of Respondents" />
+            <Bar dataKey="value" fill="#FFCD00" name="Number of Respondents" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -587,7 +588,7 @@ const CoffeeSurveyDashboard = () => {
             <PolarGrid />
             <PolarAngleAxis dataKey="location" />
             <PolarRadiusAxis angle={30} domain={[0, 5]} />
-            <Radar name="Average Ranking (lower is better)" dataKey="average" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+            <Radar name="Average Ranking (lower is better)" dataKey="average" stroke="#D22630" fill="#D22630" fillOpacity={0.6} />
             <Tooltip />
           </RadarChart>
         </ResponsiveContainer>
@@ -608,7 +609,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="value" fill="#82ca9d" name="Number of Respondents" />
+            <Bar dataKey="value" fill="#3F2021" name="Number of Respondents" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -624,7 +625,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="value" fill="#8884d8" name="Number of Respondents" />
+            <Bar dataKey="value" fill="#A4343A" name="Number of Respondents" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -640,7 +641,7 @@ const CoffeeSurveyDashboard = () => {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Bar dataKey="value" fill="#ffc658" name="Number of Respondents" />
+            <Bar dataKey="value" fill="#FFCD00" name="Number of Respondents" />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -662,34 +663,39 @@ const CoffeeSurveyDashboard = () => {
       <div className="mb-6 bg-white rounded-lg shadow overflow-hidden">
         <div className="flex flex-wrap">
           <button
-            className={`px-4 py-2 font-medium ${activeTab === 'demographics' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-4 py-2 font-medium ${activeTab === 'demographics' ? 'bg-A4343A text-white' : 'bg-gray-100'}`}
+            style={{ backgroundColor: activeTab === 'demographics' ? '#A4343A' : '' }}
             onClick={() => setActiveTab('demographics')}
           >
             Demographics
           </button>
           <button
-            className={`px-4 py-2 font-medium ${activeTab === 'consumption' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-4 py-2 font-medium ${activeTab === 'consumption' ? 'bg-D22630 text-white' : 'bg-gray-100'}`}
+            style={{ backgroundColor: activeTab === 'consumption' ? '#D22630' : '' }}
             onClick={() => setActiveTab('consumption')}
           >
             Consumption Habits
           </button>
           <button
-            className={`px-4 py-2 font-medium ${activeTab === 'preferences' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-4 py-2 font-medium ${activeTab === 'preferences' ? 'bg-FFCD00 text-black' : 'bg-gray-100'}`}
+            style={{ backgroundColor: activeTab === 'preferences' ? '#FFCD00' : '' }}
             onClick={() => setActiveTab('preferences')}
           >
             Preferences
           </button>
           <button
-            className={`px-4 py-2 font-medium ${activeTab === 'insights' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-4 py-2 font-medium ${activeTab === 'insights' ? 'bg-3F2021 text-white' : 'bg-gray-100'}`}
+            style={{ backgroundColor: activeTab === 'insights' ? '#3F2021' : '' }}
             onClick={() => setActiveTab('insights')}
           >
             Insights
           </button>
           <button
-            className={`px-4 py-2 font-medium ${activeTab === 'summary' ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+            className={`px-4 py-2 font-medium ${activeTab === 'summary' ? 'bg-A4343A text-white' : 'bg-gray-100'}`}
+            style={{ backgroundColor: activeTab === 'summary' ? '#A4343A' : '' }}
             onClick={() => setActiveTab('summary')}
           >
-            Insights Summary
+            Summary
           </button>
         </div>
       </div>
