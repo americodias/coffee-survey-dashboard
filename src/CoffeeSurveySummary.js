@@ -16,31 +16,37 @@ const CoffeeSurveySummary = () => {
     { name: 'Other', value: 12.2 } // 100 - 64.6 - 23.2 = 12.2
   ];
   
-  // Updated color scheme
-  const COLORS = ['#A4343A', '#D22630', '#FFCD00', '#3F2021'];
+  // Defining the new color scheme explicitly
+  const maroonRed = "#A4343A";
+  const brightRed = "#D22630";
+  const gold = "#FFCD00";
+  const darkBrown = "#3F2021";
+  
+  // Using these colors in an array for the charts
+  const COLORS = [maroonRed, brightRed, gold, darkBrown];
   
   return (
     <div className="bg-white p-8 h-full flex flex-col" style={{ fontFamily: 'Arial, sans-serif' }}>
-      <h1 className="text-3xl font-bold text-center mb-4">Coffee Consumption Survey Insights</h1>
+      <h1 className="text-3xl font-bold text-center mb-4" style={{ color: maroonRed }}>Coffee Consumption Survey Insights</h1>
       <p className="text-sm text-gray-500 text-center mb-6">95 respondents from Nordic countries • March 2025</p>
       
       <div className="grid grid-cols-2 gap-6 flex-grow">
         {/* Left Column - Key Stats */}
         <div className="flex flex-col justify-between">
           <div>
-            <h2 className="text-xl font-semibold mb-2">Demographics & Preferences</h2>
+            <h2 className="text-xl font-semibold mb-2" style={{ color: darkBrown }}>Demographics & Preferences</h2>
             <div className="bg-gray-50 p-4 rounded shadow-sm">
               <ul className="space-y-3">
                 <li className="flex items-baseline">
-                  <span className="text-3xl font-bold mr-2" style={{ color: '#A4343A' }}>95</span>
+                  <span className="text-3xl font-bold mr-2" style={{ color: maroonRed }}>95</span>
                   <span>respondents from Sweden (53%), Denmark (26%), Norway (21%)</span>
                 </li>
                 <li className="flex items-baseline">
-                  <span className="text-3xl font-bold mr-2" style={{ color: '#D22630' }}>81%</span>
+                  <span className="text-3xl font-bold mr-2" style={{ color: brightRed }}>81%</span>
                   <span>are interested in coffee wellness benefits</span>
                 </li>
                 <li className="flex items-baseline">
-                  <span className="text-3xl font-bold mr-2" style={{ color: '#3F2021' }}>57%</span>
+                  <span className="text-3xl font-bold mr-2" style={{ color: darkBrown }}>57%</span>
                   <span>drink their coffee black</span>
                 </li>
               </ul>
@@ -48,29 +54,29 @@ const CoffeeSurveySummary = () => {
           </div>
           
           <div>
-            <h2 className="text-xl font-semibold mb-2">Consumer Insights</h2>
+            <h2 className="text-xl font-semibold mb-2" style={{ color: darkBrown }}>Consumer Insights</h2>
             <div className="bg-gray-50 p-4 rounded shadow-sm">
-              <p className="mb-2"><b>Top purchase factors:</b> Taste, Price</p>
-              <p className="mb-2"><b>Preferred location:</b> Home, followed by Work</p>
-              <p className="mb-2"><b>What would make people try new coffee:</b> Brand story and Availability</p>
-              <p><b>"Wow" Factors:</b> Portuguese-Nordic Fusion, Functional Benefits/Special Formulations</p>
+              <p className="mb-2"><b style={{ color: maroonRed }}>Top purchase factors:</b> Taste, Price</p>
+              <p className="mb-2"><b style={{ color: brightRed }}>Preferred location:</b> Home, followed by Work</p>
+              <p className="mb-2"><b style={{ color: gold }}>What would make people try new coffee:</b> Brand story and Availability</p>
+              <p><b style={{ color: darkBrown }}>"Wow" Factors:</b> Portuguese-Nordic Fusion, Functional Benefits/Special Formulations</p>
             </div>
           </div>
         </div>
         
         {/* Right Column - Charts */}
         <div className="flex flex-col justify-between">
-          <div className="h-full">
-            <h2 className="text-xl font-semibold mb-2">Roast Preference</h2>
-            <div className="h-5/6 bg-gray-50 p-4 rounded shadow-sm">
+          <div className="h-3/5" style={{ minHeight: "300px" }}>
+            <h2 className="text-xl font-semibold mb-2" style={{ color: darkBrown }}>Roast Preference</h2>
+            <div className="h-5/6 bg-gray-50 p-4 rounded shadow-sm" style={{ minHeight: "260px" }}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart margin={{ top: 0, right: 0, bottom: 20, left: 0 }}>
                   <Pie
                     data={roastData}
                     cx="50%"
                     cy="40%"
-                    innerRadius={30}
-                    outerRadius={50}
+                    innerRadius={40}
+                    outerRadius={80}
                     paddingAngle={5}
                     dataKey="value"
                   >
@@ -78,7 +84,11 @@ const CoffeeSurveySummary = () => {
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value) => `${value}%`} />
+                  <Tooltip 
+                    formatter={(value) => `${value}%`}
+                    contentStyle={{ backgroundColor: 'white', borderColor: maroonRed }}
+                    itemStyle={{ color: darkBrown }}
+                  />
                   <Legend 
                     layout="horizontal" 
                     verticalAlign="bottom" 
@@ -90,9 +100,9 @@ const CoffeeSurveySummary = () => {
             </div>
           </div>
           
-          <div className="h-1/2">
-            <h2 className="text-xl font-semibold mb-2">Brewing Method</h2>
-            <div className="h-5/6 bg-gray-50 p-4 rounded shadow-sm">
+          <div className="h-2/5" style={{ minHeight: "250px" }}>
+            <h2 className="text-xl font-semibold mb-2" style={{ color: darkBrown }}>Brewing Method</h2>
+            <div className="h-5/6 bg-gray-50 p-4 rounded shadow-sm" style={{ minHeight: "200px" }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart 
                   data={brewingData}
@@ -101,11 +111,20 @@ const CoffeeSurveySummary = () => {
                 >
                   <XAxis type="number" domain={[0, 70]} tickFormatter={(value) => `${value}%`} />
                   <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} />
-                  <Tooltip formatter={(value) => `${value}%`} />
+                  <Tooltip 
+                    formatter={(value) => `${value}%`}
+                    contentStyle={{ backgroundColor: 'white', borderColor: maroonRed }}
+                    itemStyle={{ color: darkBrown }}
+                  />
                   <Bar 
                     dataKey="value" 
                     barSize={25}
-                    label={{ position: 'right', formatter: (value) => `${value}%`, fontSize: 12 }}
+                    label={{ 
+                      position: 'right', 
+                      formatter: (value) => `${value}%`, 
+                      fontSize: 12,
+                      fill: darkBrown
+                    }}
                   >
                     {brewingData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
