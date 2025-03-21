@@ -60,7 +60,7 @@ const CoffeeSurveySummary = () => {
         
         {/* Right Column - Charts */}
         <div className="flex flex-col justify-between">
-          <div className="h-1/2">
+          <div className="h-full">
             <h2 className="text-xl font-semibold mb-2">Roast Preference</h2>
             <div className="h-5/6 bg-gray-50 p-4 rounded shadow-sm">
               <ResponsiveContainer width="100%" height="100%">
